@@ -21,7 +21,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
         login: _loginController.text,
         password: _passwordController.text,
         dateOfBirth: _dateOfBirthController.text,
-        favoriteArticles: [],
       );
       User.users.add(newUser);
       Navigator.pushReplacement(

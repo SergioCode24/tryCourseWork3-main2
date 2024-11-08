@@ -1,21 +1,14 @@
+import 'favorite_articles.dart';
+
 class User {
   String name;
   String login;
   String password;
   String dateOfBirth;
-  final List<String> favoriteArticles;
 
-  User({required this.name, required this.login, required this.password, required this.dateOfBirth, required this.favoriteArticles});
+  User({required this.name, required this.login, required this.password, required this.dateOfBirth});
 
   static List<User> users = [];
-
-  void addFavoriteArticle(String title) {
-    favoriteArticles.add(title);
-  }
-
-  void removeFavoriteArticle(String title) {
-    favoriteArticles.remove(title);
-  }
 
   void updateName(String newName) {
     name = newName;

@@ -29,13 +29,6 @@ class _AstrologyHomePageState extends State<AstrologyHomePage> {
   void initState() {
     super.initState();
     selectedZodiacSign = widget.user.getZodiacSign();
-    _updateFavoriteStatus();
-  }
-
-  void _updateFavoriteStatus() {
-    for (var article in articles) {
-      article.isFavorite = widget.user.favoriteArticles.contains(article.title);
-    }
   }
 
   List<Article> get filteredArticles {
@@ -61,12 +54,6 @@ class _AstrologyHomePageState extends State<AstrologyHomePage> {
 
   void _toggleFavorite(String title) {
     setState(() {
-      if (widget.user.favoriteArticles.contains(title)) {
-        widget.user.removeFavoriteArticle(title);
-      } else {
-        widget.user.addFavoriteArticle(title);
-      }
-      _updateFavoriteStatus();
     });
   }
 
@@ -161,8 +148,7 @@ class _AstrologyHomePageState extends State<AstrologyHomePage> {
                           SizedBox(height: 8.0),
                           FavoriteButton(
                             user: widget.user,
-                            articleTitle: article.title,
-                            onToggleFavorite: () => _toggleFavorite(article.title),
+                            onToggleFavorite: () => _toggleFavorite(article.title), id: filteredArticles[index].id,
                           ),
                         ],
                       ),
